@@ -5,7 +5,7 @@
       <div class="container">
         <div class="navbar-brand">
           <a class="navbar-item">
-            My Shtuff
+            This is a website
           </a>
           <span class="navbar-burger burger" data-target="navbarMenuHeroA">
             <span></span>
@@ -42,10 +42,10 @@
   <div class="hero-body">
     <div class="container has-text-centered">
       <h1 class="title">
-        HEy GURL
+        This is a title
       </h1>
       <h2 class="subtitle">
-        You come here often?
+        This is a subtitle
       </h2>
     </div>
   </div>

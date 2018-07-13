@@ -1,12 +1,21 @@
 <template>
     <div class="container">
-        <div class="row justify-content-center">
-            <div class="col-md-8">
-                <div class="card card-default">
-                    <div class="card-header">Example Component</div>
+        <div class="columns">
+            <div class="column">
+                <div class="message" v-for="status in statuses">
+                    <div class="message-header">
+                      <p>
+                        {{ status.user.name }} said...
+                      </p>
+                      <p>
+                        A moment ago...
+                      </p>
+                    </div>
 
-                    <div class="card-body">
-                        I'm an example component.
+                    <div class="message-body">
+                        <p>
+                          {{ status.body }}
+                        </p>
                     </div>
                 </div>
             </div>
@@ -16,8 +25,15 @@
 
 <script>
     export default {
-        mounted() {
-            console.log('Component mounted.')
+      data() {
+        return {
+          statuses: []
         }
+      },
+      created() {
+        axios.get('/statuses')
+        .then(response => this.statuses = response.data)
+      }
+
     }
 </script>
