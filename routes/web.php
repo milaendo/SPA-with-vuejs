@@ -15,6 +15,5 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/statuses', function () {
-
-});
+Route::get('/statuses', 'statusController@index');
+Route::post('/statuses', 'statusController@store');

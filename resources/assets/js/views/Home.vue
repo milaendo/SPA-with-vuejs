@@ -8,7 +8,7 @@
                         {{ status.user.name }} said...
                       </p>
                       <p>
-                        A moment ago...
+                        {{ status.created_at | ago }}
                       </p>
                     </div>
 
@@ -20,20 +20,32 @@
                 </div>
             </div>
         </div>
+        <add-to-stream></add-to-stream>
     </div>
+
 </template>
 
 <script>
+  import moment from 'moment';
+  import AddToStream from '../components/AddToStream.vue';
+
     export default {
+      components: {
+        AddToStream
+      },
       data() {
         return {
           statuses: []
         }
       },
+      filters: {
+        ago(date) {
+          return moment(date).toNow();
+        }
+      },
       created() {
         axios.get('/statuses')
-        .then(response => this.statuses = response.data)
+          .then(response => this.statuses = response.data);
       }
-
     }
 </script>
